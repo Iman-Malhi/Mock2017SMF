@@ -1,3 +1,5 @@
+
+
 #include <Adafruit_RGBLCDShield.h>
 
 #include <Wire.h>
@@ -11,9 +13,9 @@ bool zone2 = false;
 bool zone3 = false;
 bool autonomous = false;
 bool teleop = false;
-boolean noObject1 = true;
-boolean noObject2= true;
-boolean noObject3 = true;
+boolean noObject1 = false;
+boolean noObject2= false;
+boolean noObject3 = false;
 int sensorPin1 = 2;
 int sensorPin2 = 3;
 int sensorPin3 = 4;
@@ -32,9 +34,9 @@ lcd.print("Zone3");
 void loop() {
 
  
-  noObject1 = digitalRead(sensorPin1);
-  noObject2 = digitalRead(sensorPin2);
-  noObject3 = digitalRead(sensorPin3);
+  //noObject1 = digitalRead(sensorPin1);
+  //noObject2 = digitalRead(sensorPin2);
+  //noObject3 = digitalRead(sensorPin3);
 
 
   if(noObject1)
@@ -52,8 +54,8 @@ void loop() {
     Serial.println("Object 1 detected.");
     lcd.setCursor(6,0);
     lcd.print("A");
-    lcd.setBacklight(0x3);
-    delay(800);
+    //lcd.setBacklight(0x3);
+    //delay(5000);
     lcd.setBacklight(0x1);  
     
   }
@@ -70,8 +72,8 @@ if(noObject2)
     Serial.println("Object 2 detected.");
     lcd.setCursor(6,1);
     lcd.print("A");
-    lcd.setBacklight(0x3);
-    delay(800);
+    //lcd.setBacklight(0x3);
+    //delay(800);
     lcd.setBacklight(0x1);  
 
   }
@@ -87,15 +89,14 @@ if(noObject3)
     Serial.println("Object 3 detected.");
     lcd.setCursor(15,0);
     lcd.print("A");
-    lcd.setBacklight(0x3);
-    delay(800);
+    //lcd.setBacklight(0x3);
+    //delay(800);
     lcd.setBacklight(0x1);  
   }
 
-if (noObject1 == false && noObject2 == false && noObject3 == false)
+//if (noObject1 == false && noObject2 == false && noObject3 == false)
 {
-  lcd.setBacklight(0x3);
+  //lcd.setBacklight(0x3);
 }
 
-}
-
+}                                                                                                                                                 
